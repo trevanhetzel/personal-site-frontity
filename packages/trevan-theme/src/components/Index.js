@@ -52,6 +52,7 @@ const globalStyles = css`
   body {
     margin: 0;
     font-family: 'Rubik', sans-serif;
+    overflow-x: hidden;
   }
 
   a,

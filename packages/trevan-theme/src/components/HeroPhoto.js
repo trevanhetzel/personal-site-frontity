@@ -17,8 +17,9 @@ export default connect(HeroPhoto);
 const Frame = styled.div`
 	position: absolute;
 	top: -110px;
-	left: 63%;
-	width: 410px;
+	left: 58%;
+	width: 31%;
+	max-width: 410px;
 	height: calc(100% + 110px);
 	transform: skew(25deg);
 	overflow: hidden;
@@ -28,6 +29,10 @@ const Frame = styled.div`
 		filter: saturate(1.2);
 		height: 100%;
 		width: auto;
+	}
+
+	@media (min-width: 1264px) {
+		width: 32%
 	}
 `;
 
