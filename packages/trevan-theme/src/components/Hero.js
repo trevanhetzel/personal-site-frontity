@@ -7,7 +7,7 @@ const Hero = ({ state }) => {
   return (
 		<Container className="contain">
 			<h1>Trevan Hetzel</h1>
-			<p>Hey, I’m Trevan! I love mentoring new designers, specifically those outside of overly-represented groups. I approach everything I do (including the occasional freelance project) collaboratively and as a partnership by default.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non egestas urna. Praesent semper tellus libero. Vestibulum vitae aliquet erat. Donec finibus quam ut varius scelerisque. Integer hendrerit lectus at cursus elementum.</p>
 
 			<Button text="Get to know me more" />
 
