@@ -14,7 +14,8 @@
     "dev": "frontity dev",
     "build": "frontity build",
     "serve": "frontity serve",
-    "wpe-build": "frontity build"
+    "wpe-build": "frontity build",
+    "start": "frontity serve"
   },
   "prettier": {},
   "dependencies": {
