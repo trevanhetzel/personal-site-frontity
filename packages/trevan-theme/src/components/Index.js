@@ -86,6 +86,6 @@ const globalStyles = css`
 const Main = styled.div`
   display: flex;
   justify-content: center;
-  background: #fc4501;
+  background-color: #fc4501;
   position: relative;
 `;
