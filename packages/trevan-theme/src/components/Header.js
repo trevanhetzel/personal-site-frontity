@@ -15,7 +15,7 @@ const Header = ({ state }) => {
 					<Logo />
 				</Link>
 
-				<nav>
+				<Nav>
 					<NavList>
 						{state.theme.menu.map(([name, link]) => {
 							// Check if the link matched the current page url
@@ -30,7 +30,7 @@ const Header = ({ state }) => {
 							);
 						})}
 					</NavList>
-				</nav>
+				</Nav>
 
 				<Icons>
 					<Icon>
@@ -64,6 +64,15 @@ const Container = styled.div`
 	margin: 0 auto;
 	padding: 27px;
 	box-sizing: border-box;
+	flex-wrap: wrap;
+	text-align: center;
+	justify-content: center;
+
+	@media (min-width: 460px) {
+		flex-wrap: nowrap;
+		text-align: left;
+		justify-content: inherit;
+	}
 `;
 
 const Title = styled.h2`
@@ -71,17 +80,39 @@ const Title = styled.h2`
 	margin-bottom: 16px;
 `;
 
+const Nav = styled.nav`
+	width: 100%;
+	margin: 20px auto 0;
+
+	@media (min-width: 460px) {
+		width: auto;
+		margin: 0 0 0 auto;
+	}
+
+	@media (min-width: 660px) {
+		margin: 0;
+	}
+`;
+
 const NavList = styled.ul`
-	display: flex;
 	margin: 0;
 	padding: 0;
 	list-style: none;
+
+	@media (min-width: 460px) {
+		display: flex;
+	}
 `;
 
 const NavItem = styled.li`
 	font-size: 16px;
 	font-weight: bold;
-	margin: 0 20px;
+	margin: 0 10px;
+	display: inline-block;
+
+	@media (min-width: 660px) {
+		margin: 0 20px;
+	}
 
 	@media (min-width: 1130px) {
 		font-size: 18px;
@@ -93,11 +124,15 @@ const NavItem = styled.li`
 `;
 
 const Icons = styled.ul`
-	display: flex;
+	display: none;
 	align-items: center;
 	margin: 0 0 0 auto;
 	padding: 0;
 	list-style: none;
+
+	@media (min-width: 660px) {
+		display: flex;
+	}
 `;
 
 const Icon = styled.li`

@@ -9,6 +9,11 @@ import Loading from "./Loading";
 import Title from "./Title";
 import PageError from "./PageError";
 
+import favicon32 from '../images/favicon-32.png';
+import favicon144 from '../images/favicon-144.png';
+import favicon152 from '../images/favicon-152.png';
+import favicon196 from '../images/favicon-196.png';
+
 /**
  * Theme is the root React component of our theme. The one we will export
  * in roots.
@@ -25,6 +30,11 @@ const Theme = ({ state }) => {
         <meta name="description" content={state.frontity.description} />
         <html lang="en" />
         <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet" />
+        <link rel="apple-touch-icon-precomposed" href={favicon152} />
+        <link rel="icon" href={favicon32} sizes="32x32" />
+        <link rel="shortcut icon" sizes="196x196" href={favicon196} />
+        <meta name="msapplication-TileColor" content="#FFFFFF" />
+        <meta name="msapplication-TileImage" content={favicon144} />
       </Head>
 
       <Global styles={globalStyles} />
@@ -53,6 +63,11 @@ const globalStyles = css`
     margin: 0;
     font-family: 'Rubik', sans-serif;
     overflow-x: hidden;
+    box-sizing: border-box;
+  }
+
+  * {
+    box-sizing: inherit;
   }
 
   a,
@@ -62,24 +77,45 @@ const globalStyles = css`
   }
 
   .contain {
-    width: 1220px;
+    width: 1280px;
     max-width: 100%;
     margin: 0 auto;
   }
 
   h1 {
     margin: 0;
-    font-size: 58px;
+    font-size: 42px;
+
+    @media (min-width: 600px) {
+      font-size: 50px;
+    }
+
+    @media (min-width: 820px) {
+      font-size: 58px;
+    }
   }
 
   h2 {
     margin: 0;
-    font-size: 38px;
+    font-size: 28px;
+
+    @media (min-width: 600px) {
+      font-size: 32px;
+    }
+
+    @media (min-width: 820px) {
+      font-size: 38px;
+    }
   }
 
   p {
-    font-size: 18px;
-    line-height: 30px;
+    font-size: 16px;
+    line-height: 25px;
+
+    @media (min-width: 820px) {
+      font-size: 18px;
+      line-height: 30px;
+    }
   }
 `;
 

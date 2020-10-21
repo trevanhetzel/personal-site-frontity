@@ -1,53 +1,28 @@
 import React from "react";
 import { connect, styled } from "frontity";
 import Link from "../Link";
-import FeaturedMedia from "../FeaturedMedia";
+import Button from '../Button';
 
 /**
  * Item Component
  *
  * It renders the preview of a blog post. Each blog post contains
  * - Title: clickable title of the post
- * - Author: name of author and published date
- * - FeaturedMedia: the featured image/video of the post
  */
 const Item = ({ state, item }) => {
-  const author = state.source.author[item.author];
   const date = new Date(item.date);
 
   return (
     <Article>
       <Link link={item.link}>
-        <Title dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
+        <h2 dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
       </Link>
 
-      <div>
-        {/* If the post has an author, we render a clickable author text. */}
-        {author && (
-          <StyledLink link={author.link}>
-            <AuthorName>
-              By <b>{author.name}</b>
-            </AuthorName>
-          </StyledLink>
-        )}
-        <PublishDate>
-          {" "}
-          on <b>{date.toDateString()}</b>
-        </PublishDate>
-      </div>
+      <PublishDate>
+        Posted on <strong>{date.toDateString()}</strong>
+      </PublishDate>
 
-      {/*
-       * If the want to show featured media in the
-       * list of featured posts, we render the media.
-       */}
-      {state.theme.featured.showOnList && (
-        <FeaturedMedia id={item.featured_media} />
-      )}
-
-      {/* If the post has an excerpt (short summary text), we render it */}
-      {item.excerpt && (
-        <Excerpt dangerouslySetInnerHTML={{ __html: item.excerpt.rendered }} />
-      )}
+      <Button text="Read article" url={item.link} secondary />
     </Article>
   );
 };
@@ -57,29 +32,24 @@ export default connect(Item);
 
 const Article = styled.article`
   background: white;
-  padding: 50px;
+  padding: 30px;
   border: 2px solid #000;
+
+  @media (min-width: 820px) {
+    padding: 35px;
+  }
+
+  @media (min-width: 1000px) {
+    padding: 50px;
+  }
 `;
 
-const Title = styled.h2`
+const PublishDate = styled.p`
+  margin: 15px 0;
+  color: #5F4A1F;
+  font-size: 15px;
 
-`;
-
-const AuthorName = styled.span`
-  color: rgba(12, 17, 43, 0.9);
-  font-size: 0.9em;
-`;
-
-const StyledLink = styled(Link)`
-  padding: 15px 0;
-`;
-
-const PublishDate = styled.span`
-  color: rgba(12, 17, 43, 0.9);
-  font-size: 0.9em;
-`;
-
-const Excerpt = styled.div`
-  line-height: 1.6em;
-  color: rgba(12, 17, 43, 0.8);
+  @media (min-width: 820px) {
+    font-size: 18px;
+  }
 `;

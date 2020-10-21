@@ -39,7 +39,12 @@ export default connect(List);
 
 const Container = styled.section`
   display: grid;
-  grid-template-columns: 50% 50%;
   grid-gap: 30px;
-  margin: -90px auto 0;
+  margin: -30px auto 0;
+  padding: 0 30px;
+
+  @media (min-width: 820px) {
+    margin: -90px auto 0;
+    grid-template-columns: calc(50% - 15px) calc(50% - 15px);
+  }
 `;

@@ -15,9 +15,10 @@ const HeroPhoto = ({ state }) => {
 export default connect(HeroPhoto);
 
 const Frame = styled.div`
+	display: none;
 	position: absolute;
 	top: -110px;
-	left: 58%;
+	left: 61%;
 	width: 31%;
 	max-width: 410px;
 	height: calc(100% + 110px);
@@ -31,8 +32,13 @@ const Frame = styled.div`
 		width: auto;
 	}
 
+	@media (min-width: 1000px) {
+		display: block;
+	}
+
 	@media (min-width: 1264px) {
-		width: 32%
+		width: 32%;
+		left: 58%;
 	}
 `;
 
