@@ -2,7 +2,7 @@ const settings = {
   "name": "frontity",
   "state": {
     "frontity": {
-      "url": "http://trevan.local",
+      "url": "https://trevan.co",
       "title": "Trevan Hetzel",
       "description": "WordPress installation for Frontity development"
     }
