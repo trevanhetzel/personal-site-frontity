@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { connect, styled } from "frontity";
-import Link from "../Link";
+import Button from "../Button";
 
 /**
  * Pagination Component
@@ -20,23 +20,17 @@ const Pagination = ({ state, actions }) => {
   }, []);
 
   return (
-    <div>
-      {/* If there's a next page, render this link */}
-      {next && (
-        <Link link={next}>
-          <Text>← Older posts</Text>
-        </Link>
-      )}
-
-      {previous && next && " - "}
-
+    <Container previous={previous} next={next}>
       {/* If there's a previous page, render this link */}
       {previous && (
-        <Link link={previous}>
-          <Text>Newer posts →</Text>
-        </Link>
+        <Button text="Newer" url={previous} alt previous />
       )}
-    </div>
+
+      {/* If there's a next page, render this link */}
+      {next && (
+        <Button text="Older" url={next} alt />
+      )}
+    </Container>
   );
 };
 
@@ -46,7 +40,9 @@ const Pagination = ({ state, actions }) => {
  */
 export default connect(Pagination);
 
-const Text = styled.em`
-  display: inline-block;
-  margin-top: 16px;
+const Container = styled.div`
+  margin: 30px auto 0;
+  width: 100%;
+  display: flex;
+  justify-content: ${props => props.previous && props.next ? "space-between" : "flex-end"};
 `;

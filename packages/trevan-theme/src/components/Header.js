@@ -7,12 +7,12 @@ import EmailIcon from "./svg/Email";
 import SearchIcon from "./svg/Search";
 import Link from "./Link";
 
-const Header = ({ state }) => {
+const Header = ({ state, white }) => {
 	return (
 		<>
-			<Container>
+			<Container white={white}>
 				<Link link="/">
-					<Logo />
+					<Logo white={!white} />
 				</Link>
 
 				<Nav>
@@ -32,7 +32,7 @@ const Header = ({ state }) => {
 					</NavList>
 				</Nav>
 
-				<Icons>
+				<Icons white={white}>
 					<Icon>
 						<TwitterIcon />
 					</Icon>
@@ -59,7 +59,6 @@ export default connect(Header);
 const Container = styled.div`
 	display: flex;
 	align-items: center;
-	width: 1330px;
 	max-width: 100%;
 	margin: 0 auto;
 	padding: 27px;
@@ -67,6 +66,8 @@ const Container = styled.div`
 	flex-wrap: wrap;
 	text-align: center;
 	justify-content: center;
+	background: ${props => props.white ? "white" : "#fc4501"};
+	color: ${props => props.white ? "black" : "white"};
 
 	@media (min-width: 460px) {
 		flex-wrap: nowrap;
@@ -129,6 +130,10 @@ const Icons = styled.ul`
 	margin: 0 0 0 auto;
 	padding: 0;
 	list-style: none;
+
+	svg {
+		fill: ${props => props.white ? "black" : "white"};
+	}
 
 	@media (min-width: 660px) {
 		display: flex;

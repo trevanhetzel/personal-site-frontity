@@ -2,6 +2,7 @@ import React from "react";
 import { Global, css, connect, styled, Head } from "frontity";
 import Switch from "@frontity/components/switch";
 import Header from "./Header";
+import Footer from "./Footer";
 import Hero from "./Hero";
 import List from "./List";
 import Post from "./Post";
@@ -39,19 +40,22 @@ const Theme = ({ state }) => {
 
       <Global styles={globalStyles} />
 
-      <Header />
-      <Hero />
+      <Header white={data.isArchive} />
+
+      {data.isArchive && (
+        <Hero />
+      )}
 
       {/* Add the main section. It renders a different component depending
       on the type of URL we are in. */}
-      <Main>
-        <Switch>
-          <Loading when={data.isFetching} />
-          <List when={data.isArchive} />
-          <Post when={data.isPostType} />
-          <PageError when={data.isError} />
-        </Switch>
-      </Main>
+      <Switch>
+        <Loading when={data.isFetching} />
+        <List when={data.isArchive} />
+        <Post when={data.isPostType} />
+        <PageError when={data.isError} />
+      </Switch>
+
+      <Footer />
     </>
   );
 };
@@ -80,6 +84,7 @@ const globalStyles = css`
     width: 1280px;
     max-width: 100%;
     margin: 0 auto;
+    padding: 0 30px;
   }
 
   h1 {
@@ -108,20 +113,26 @@ const globalStyles = css`
     }
   }
 
+  h3 {
+    margin: 30px 0 0;
+    font-size: 24px;
+
+    @media (min-width: 600px) {
+      font-size: 28px;
+    }
+
+    @media (min-width: 820px) {
+      font-size: 30px;
+    }
+  }
+
   p {
     font-size: 16px;
     line-height: 25px;
 
     @media (min-width: 820px) {
-      font-size: 18px;
+      font-size: 19px;
       line-height: 30px;
     }
   }
-`;
-
-const Main = styled.div`
-  display: flex;
-  justify-content: center;
-  background-color: #fc4501;
-  position: relative;
 `;

@@ -46,7 +46,7 @@ const Article = styled.article`
 
 const PublishDate = styled.p`
   margin: 15px 0;
-  color: #5F4A1F;
+  color: #636e72;
   font-size: 15px;
 
   @media (min-width: 820px) {

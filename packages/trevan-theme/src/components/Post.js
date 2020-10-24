@@ -28,66 +28,37 @@ const Post = ({ state, actions, libraries }) => {
 
   // Load the post, but only if the data is ready.
   return data.isReady ? (
-    <Container>
-      <div>
-        <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
+      <Container className="contain">
+        <h1 dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
 
         {/* Only display author and date on posts */}
         {data.isPost && (
-          <div>
-            {author && (
-              <StyledLink link={author.link}>
-                <Author>
-                  By <b>{author.name}</b>
-                </Author>
-              </StyledLink>
-            )}
-            <DateWrapper>
-              {" "}
-              on <b>{date.toDateString()}</b>
-            </DateWrapper>
-          </div>
+          <PublishDate>Posted on <strong>{date.toDateString()}</strong></PublishDate>
         )}
-      </div>
 
-      {/* Render the content using the Html2React component so the HTML is processed
-       by the processors we included in the libraries.html2react.processors array. */}
-      <Content>
-        <Html2React html={post.content.rendered} />
-      </Content>
-    </Container>
+        {/* Render the content using the Html2React component so the HTML is processed
+        by the processors we included in the libraries.html2react.processors array. */}
+        <Content>
+          <Html2React html={post.content.rendered} />
+        </Content>
+      </Container>
   ) : null;
 };
 
 export default connect(Post);
 
 const Container = styled.div`
-  width: 800px;
-  margin: 0;
-  padding: 24px;
+  padding: 80px 30px;
 `;
 
-const Title = styled.h1`
-  margin: 0;
-  margin-top: 24px;
-  margin-bottom: 8px;
-  color: rgba(12, 17, 43);
-`;
+const PublishDate = styled.p`
+  margin: 15px 0 40px;
+  color: #636e72;
+  font-size: 15px;
 
-const StyledLink = styled(Link)`
-  padding: 15px 0;
-`;
-
-const Author = styled.p`
-  color: rgba(12, 17, 43, 0.9);
-  font-size: 0.9em;
-  display: inline;
-`;
-
-const DateWrapper = styled.p`
-  color: rgba(12, 17, 43, 0.9);
-  font-size: 0.9em;
-  display: inline;
+  @media (min-width: 820px) {
+    font-size: 18px;
+  }
 `;
 
 /**
@@ -95,15 +66,27 @@ const DateWrapper = styled.p`
  * selectors to style that HTML.
  */
 const Content = styled.div`
-  color: rgba(12, 17, 43, 0.8);
   word-break: break-word;
 
   * {
     max-width: 100%;
   }
 
-  p {
-    line-height: 1.6em;
+  h1 {
+    margin: 60px 0 30px;
+    font-size: 34px;
+
+    @media (min-width: 600px) {
+      font-size: 40px;
+    }
+
+    @media (min-width: 820px) {
+      font-size: 46px;
+    }
+  }
+
+  h2 {
+    margin: 45px 0 0;
   }
 
   img {
@@ -128,14 +111,14 @@ const Content = styled.div`
   }
 
   blockquote {
-    margin: 16px 0;
+    margin: 30px 0;
     background-color: rgba(0, 0, 0, 0.1);
     border-left: 4px solid rgba(12, 17, 43);
     padding: 4px 16px;
   }
 
   a {
-    color: rgb(31, 56, 197);
+    color: #fc4501;
     text-decoration: underline;
   }
 

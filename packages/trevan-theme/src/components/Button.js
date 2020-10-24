@@ -1,17 +1,25 @@
-import { styled } from "frontity";
+import { styled, css } from "frontity";
 import Link from "./Link";
 
 const Button = ({
 	text,
 	url,
-	secondary
+	secondary,
+	alt,
+	previous
 }) => {
 	return (
-		<ButtonStyle as={secondary ? SecondaryButtonStyle : false}>
+		<ButtonStyle as={secondary ? SecondaryButtonStyle : false} as={alt ? AltButtonStyle : false}>
 			<Link link={url}>
+				{previous &&
+					<svg xmlns="http://www.w3.org/2000/svg" width="7.563" height="13.379" viewBox="0 0 7.563 13.379" css={css`transform: rotate(180deg); margin-right: 12px`}><path id="chevron-small-right" d="M12.518,12.089,7.95,7.116a1.011,1.011,0,0,1,0-1.422.99.99,0,0,1,1.409,0l5.569,5.683a1.013,1.013,0,0,1,0,1.424L9.359,18.483a.987.987,0,0,1-1.409,0,1.011,1.011,0,0,1,0-1.422Z" transform="translate(-7.658 -5.4)" fill="#fb4500"/></svg>
+				}
+
 				{ text }
 
-				<svg xmlns="http://www.w3.org/2000/svg" width="7.563" height="13.379" viewBox="0 0 7.563 13.379"><path id="chevron-small-right" d="M12.518,12.089,7.95,7.116a1.011,1.011,0,0,1,0-1.422.99.99,0,0,1,1.409,0l5.569,5.683a1.013,1.013,0,0,1,0,1.424L9.359,18.483a.987.987,0,0,1-1.409,0,1.011,1.011,0,0,1,0-1.422Z" transform="translate(-7.658 -5.4)" fill="#fb4500"/></svg>
+				{!previous &&
+					<svg xmlns="http://www.w3.org/2000/svg" width="7.563" height="13.379" viewBox="0 0 7.563 13.379" css={css`margin-left: 12px`}><path id="chevron-small-right" d="M12.518,12.089,7.95,7.116a1.011,1.011,0,0,1,0-1.422.99.99,0,0,1,1.409,0l5.569,5.683a1.013,1.013,0,0,1,0,1.424L9.359,18.483a.987.987,0,0,1-1.409,0,1.011,1.011,0,0,1,0-1.422Z" transform="translate(-7.658 -5.4)" fill="#fb4500" /></svg>
+				}
 			</Link>
 		</ButtonStyle>
 	);
@@ -32,7 +40,6 @@ const ButtonStyle = styled.div`
 		svg {
 			position: relative;
 			top: 1px;
-			margin: 0px 0 0 8px;
 		}
 
 		&:hover {
@@ -46,7 +53,6 @@ const ButtonStyle = styled.div`
 
 			svg {
 				top: 0;
-				margin: 0 0 0 12px;
 			}
 		}
 	}
@@ -57,5 +63,12 @@ const SecondaryButtonStyle = styled(ButtonStyle)`
 		padding: 0 !important;
 		border: none !important;
 		color: #fc4501 !important;
+	}
+`;
+
+const AltButtonStyle = styled(ButtonStyle)`
+  a {
+		margin: 0 auto;
+		background: #fff !important;
 	}
 `;
