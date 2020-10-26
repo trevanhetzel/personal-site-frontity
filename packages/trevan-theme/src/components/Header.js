@@ -61,7 +61,7 @@ const Container = styled.div`
 	align-items: center;
 	max-width: 100%;
 	margin: 0 auto;
-	padding: 27px;
+	padding: 17px;
 	box-sizing: border-box;
 	flex-wrap: wrap;
 	text-align: center;
@@ -70,6 +70,7 @@ const Container = styled.div`
 	color: ${props => props.white ? "black" : "white"};
 
 	@media (min-width: 460px) {
+		padding: 27px;
 		flex-wrap: nowrap;
 		text-align: left;
 		justify-content: inherit;

@@ -40,17 +40,17 @@ const Theme = ({ state }) => {
 
       <Global styles={globalStyles} />
 
-      <Header white={data.isArchive} />
+      <Header white={data.isArchive && data.page === 1} />
 
       {data.isArchive && (
-        <Hero />
+        <Hero paginated={data.page === 1} />
       )}
 
       {/* Add the main section. It renders a different component depending
       on the type of URL we are in. */}
       <Switch>
         <Loading when={data.isFetching} />
-        <List when={data.isArchive} />
+        <List when={data.isArchive} paginated={data.page === 1} />
         <Post when={data.isPostType} />
         <PageError when={data.isError} />
       </Switch>

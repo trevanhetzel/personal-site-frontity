@@ -48,7 +48,11 @@ const Post = ({ state, actions, libraries }) => {
 export default connect(Post);
 
 const Container = styled.div`
-  padding: 80px 30px;
+  padding: 40px 30px 80px;
+
+  @media (min-width: 820px) {
+    padding: 80px 30px;
+  }
 `;
 
 const PublishDate = styled.p`

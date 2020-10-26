@@ -8,7 +8,7 @@ const scale = keyframes`
 `;
 
 const Loading = () => (
-  <Container>
+  <Container className="contain">
     <div>
       <div css={bar(1)} />
       <div css={bar(2)} />
@@ -34,9 +34,7 @@ const bar = index => css`
 `;
 
 const Container = styled.div`
-  width: 800px;
-  margin: 0;
-  padding: 24px;
+  padding: 300px 0;
   display: flex;
   justify-content: center;
   align-items: center;

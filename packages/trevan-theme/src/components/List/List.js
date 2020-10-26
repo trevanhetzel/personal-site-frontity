@@ -3,13 +3,13 @@ import { connect, styled, decode } from "frontity";
 import Item from "./ListItem";
 import Pagination from "./Pagination";
 
-const List = ({ state }) => {
+const List = ({ state, paginated }) => {
   // Get the data of the current list.
   const data = state.source.get(state.router.link);
 
   return (
     <div>
-      <Container>
+      <Container paginated={paginated}>
         <ListContain className="contain">
           {/* If the list is a taxonomy, we render a title. */}
           {data.isTaxonomy && (
@@ -35,7 +35,7 @@ const List = ({ state }) => {
         </ListContain>
       </Container>
 
-      <Container>
+      <Container paginated={paginated}>
         <PaginationContainer className="contain">
           <Pagination />
         </PaginationContainer>
@@ -49,7 +49,7 @@ export default connect(List);
 const Container = styled.div`
   display: flex;
   justify-content: center;
-  background-color: #fc4501;
+  background-color: ${props => props.paginated ? "#fc4501" : "#636e72"};
   position: relative;
 `;
 
