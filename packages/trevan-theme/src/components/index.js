@@ -1,5 +1,5 @@
 import React from "react";
-import { Global, css, connect, styled, Head } from "frontity";
+import { Global, css, connect, Head } from "frontity";
 import Switch from "@frontity/components/switch";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -9,6 +9,7 @@ import Post from "./Post";
 import Loading from "./Loading";
 import Title from "./Title";
 import PageError from "./PageError";
+import prismCSS from "../vendor/prism.css";
 
 import favicon32 from '../images/favicon-32.png';
 import favicon144 from '../images/favicon-144.png';
@@ -39,6 +40,7 @@ const Theme = ({ state }) => {
       </Head>
 
       <Global styles={globalStyles} />
+      <Global styles={css(prismCSS)} />
 
       <Header white={data.isArchive && data.page === 1} />
 
