@@ -6,6 +6,7 @@ import Footer from "./Footer";
 import Hero from "./Hero";
 import List from "./List";
 import Post from "./Post";
+import Page from "./Page";
 import Loading from "./Loading";
 import Title from "./Title";
 import PageError from "./PageError";
@@ -53,7 +54,8 @@ const Theme = ({ state }) => {
       <Switch>
         <Loading when={data.isFetching} />
         <List when={data.isArchive} paginated={data.page === 1} />
-        <Post when={data.isPostType} />
+        <Post when={data.isPostType && !data.isPage} />
+        <Page when={data.isPage} />
         <PageError when={data.isError} />
       </Switch>
 
