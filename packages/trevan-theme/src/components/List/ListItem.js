@@ -22,7 +22,7 @@ const Item = ({ state, item }) => {
         Posted on <strong>{date.toDateString()}</strong>
       </PublishDate>
 
-      <Button text="Read article" url={item.link} secondary />
+      <Button text="Read article" url={item.link} secondary arrow />
     </Article>
   );
 };

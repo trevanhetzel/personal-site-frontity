@@ -15,6 +15,7 @@ const Link = ({
     if (link.startsWith("http")) return;
 
     event.preventDefault();
+
     // Set the router to the new url.
     actions.router.set(link);
 

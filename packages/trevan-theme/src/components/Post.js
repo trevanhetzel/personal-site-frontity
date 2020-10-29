@@ -1,5 +1,7 @@
-import React, { useEffect, useLayoutEffect } from "react";
-import { connect, styled } from "frontity";
+import React, { useEffect } from "react";
+import { DiscussionEmbed } from "disqus-react";
+import { connect, styled, css } from "frontity";
+import Button from './Button';
 import List from "./List";
 import prism from "../vendor/prism.js";
 
@@ -41,6 +43,26 @@ const Post = ({ state, actions, libraries }) => {
 			by the processors we included in the libraries.html2react.processors array. */}
 			<Content>
 				<Html2React html={post.content.rendered} />
+
+				{!state.theme.showComments && (
+					<div css={css`margin: 60px auto 0; text-align: center`}>
+						<Button text="Load comments" click={(event) => { event.preventDefault(); state.theme.showComments = true } }/>
+					</div>
+				)}
+
+				{state.theme.showComments && (
+					<DiscussionEmbed
+						shortname='hetzel'
+						config={
+							{
+								url: post.url,
+								identifier: `${post.id}`,
+								title: post.title.rendered
+							}
+						}
+						css={css`margin-top: 60px`}
+					/>
+				)}
 			</Content>
 		</Container>
 	) : null;
@@ -91,7 +113,7 @@ const Content = styled.div`
 	}
 
 	h2 {
-		margin: 45px 0 0;
+		margin: 45px 0 20px;
 	}
 
 	img {

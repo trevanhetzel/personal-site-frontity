@@ -23,12 +23,12 @@ const Pagination = ({ state, actions }) => {
     <Container previous={previous} next={next}>
       {/* If there's a previous page, render this link */}
       {previous && (
-        <Button text="Newer" url={previous} alt previous />
+        <Button text="Newer" url={previous} alt previous arrow />
       )}
 
       {/* If there's a next page, render this link */}
       {next && (
-        <Button text="Older" url={next} alt />
+        <Button text="Older" url={next} alt arrow />
       )}
     </Container>
   );
