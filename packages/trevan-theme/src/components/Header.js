@@ -4,7 +4,6 @@ import Logo from "./svg/Logo";
 import TwitterIcon from "./svg/Twitter";
 import DribbbleIcon from "./svg/Dribbble";
 import EmailIcon from "./svg/Email";
-import SearchIcon from "./svg/Search";
 import Link from "./Link";
 
 const Header = ({ state, white }) => {
@@ -34,19 +33,21 @@ const Header = ({ state, white }) => {
 
 				<Icons white={white}>
 					<Icon>
-						<TwitterIcon />
+						<Link link="https://twitter.com/trevanhetzel" target={ '_blank' }>
+							<TwitterIcon />
+						</Link>
 					</Icon>
 
 					<Icon>
-						<DribbbleIcon />
+						<Link link="https://dribbble.com/TrevanHetzel" target={ '_blank' }>
+							<DribbbleIcon />
+						</Link>
 					</Icon>
 
 					<Icon>
-						<EmailIcon />
-					</Icon>
-
-					<Icon>
-						<SearchIcon />
+						<Link link="mailto:trevan@hetzelcreative.com" target={ '_blank' }>
+							<EmailIcon />
+						</Link>
 					</Icon>
 				</Icons>
 			</Container>
@@ -75,11 +76,6 @@ const Container = styled.div`
 		text-align: left;
 		justify-content: inherit;
 	}
-`;
-
-const Title = styled.h2`
-	margin: 0;
-	margin-bottom: 16px;
 `;
 
 const Nav = styled.nav`
@@ -143,10 +139,4 @@ const Icons = styled.ul`
 
 const Icon = styled.li`
 	margin: 0 10px;
-
-	@media (min-width: 1264px) {
-		&:last-child {
-			margin-left: 50px;
-		}
-	}
 `;

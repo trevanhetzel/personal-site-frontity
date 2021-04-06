@@ -1,19 +1,18 @@
 import React from "react";
 import { connect, styled } from "frontity";
-import Switch from "@frontity/components/switch";
-import StaticPage from "./Pages/Static";
-import AboutPage from "./Pages/About";
 
 const Page = ({ state, actions, libraries }) => {
 	const data = state.source.get(state.router.link);
 	const post = state.source[data.type][data.id];
+	const Html2React = libraries.html2react.Component;
 
   // Load the post, but only if the data is ready.
   return data.isReady ? (
-		<Switch>
-			<AboutPage when={post.slug === 'about'} />
-			<StaticPage />
-		</Switch>
+		<div>
+			<h1 dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
+
+			<Html2React html={post.content.rendered} />
+		</div>
 	) : null;
 };
 

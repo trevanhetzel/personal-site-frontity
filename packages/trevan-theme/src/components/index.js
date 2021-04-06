@@ -85,7 +85,7 @@ const globalStyles = css`
   }
 
   .contain {
-    width: 1280px;
+    width: 1480px;
     max-width: 100%;
     margin: 0 auto;
     padding: 0 30px;
@@ -133,6 +133,11 @@ const globalStyles = css`
   p {
     font-size: 16px;
     line-height: 25px;
+
+    a {
+      color: #fc4501 !important;
+      text-decoration: underline;
+    }
 
     @media (min-width: 820px) {
       font-size: 19px;
