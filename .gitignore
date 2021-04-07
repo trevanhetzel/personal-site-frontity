@@ -5,3 +5,5 @@ build
 wpe.json
 Dockerfile
 .dockerignore
+
+.vercel

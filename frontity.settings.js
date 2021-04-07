@@ -37,7 +37,7 @@ const settings = {
       "name": "@frontity/wp-source",
       "state": {
         "source": {
-          "api": "http://trevan.local/wp-json"
+          "api": "http://trevan.co/wp-json"
         }
       }
     },
