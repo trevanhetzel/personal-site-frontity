@@ -108,6 +108,14 @@ const NavItem = styled.li`
 	margin: 0 10px;
 	display: inline-block;
 
+	a {
+		transition: opacity .2s;
+
+		&:hover {
+			opacity: .6;
+		}
+	}
+
 	@media (min-width: 660px) {
 		margin: 0 20px;
 	}
@@ -130,6 +138,11 @@ const Icons = styled.ul`
 
 	svg {
 		fill: ${props => props.white ? "black" : "white"};
+		transition: opacity .2s;
+
+		&:hover {
+			opacity: .6;
+		}
 	}
 
 	@media (min-width: 660px) {

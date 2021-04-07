@@ -7,7 +7,7 @@ const Footer = ({ state }) => {
 		<>
 			<Container>
 				<p>
-					&copy; 2020 Trevan Hetzel&nbsp;&nbsp;|&nbsp;&nbsp;Built with WordPress & Frontity on <Link link="#">Flywheel</Link>&nbsp;&nbsp;|&nbsp;&nbsp;<Link link="#">Source code</Link>
+					&copy; {new Date().getFullYear()} Trevan Hetzel&nbsp;&nbsp;|&nbsp;&nbsp;Built with WordPress & React on <Link link="https://getflywheel.com">Flywheel</Link>
 				</p>
 			</Container>
 		</>

@@ -13,7 +13,7 @@ const Hero = ({ state, paginated }) => {
 					<h1>Trevan Hetzel</h1>
 					<p>Customer inspired front-end developer with a passion for building design led experiences at scale. A strong believer that design matters and that complex problems should be solved with simplicity and elegance.</p>
 
-					<Button text="Get to know me more" url="#" arrow />
+					<Button text="Get to know me more" url="/about" arrow />
 
 					<HeroPhoto />
 				</div>

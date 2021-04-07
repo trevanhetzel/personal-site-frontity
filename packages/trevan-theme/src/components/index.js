@@ -108,6 +108,14 @@ const globalStyles = css`
     margin: 0;
     font-size: 28px;
 
+    a & {
+      transition: opacity .2s;
+
+      &:hover {
+        opacity: .6;
+      }
+    }
+
     @media (min-width: 600px) {
       font-size: 32px;
     }
@@ -137,6 +145,11 @@ const globalStyles = css`
     a {
       color: #fc4501 !important;
       text-decoration: underline;
+      transition: opacity .2s;
+
+      &:hover {
+        opacity: .6;
+      }
     }
 
     @media (min-width: 820px) {

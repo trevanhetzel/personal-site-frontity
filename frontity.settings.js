@@ -4,7 +4,7 @@ const settings = {
     "frontity": {
       "url": "https://trevan.local",
       "title": "Trevan Hetzel",
-      "description": "WordPress installation for Frontity development"
+      "description": "Trevan Hetzel's personal blog on front-end development, CSS, JavaScript, React, WordPress and more"
     }
   },
   "packages": [
@@ -42,7 +42,15 @@ const settings = {
       }
     },
     "@frontity/tiny-router",
-    "@frontity/html2react"
+    "@frontity/html2react",
+    {
+      name: "@frontity/google-analytics",
+      state: {
+        googleAnalytics: {
+          trackingId: "UA-32067301-1",
+        },
+      },
+    },
   ]
 };
 
