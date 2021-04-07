@@ -2,7 +2,7 @@ const settings = {
   "name": "frontity",
   "state": {
     "frontity": {
-      "url": "https://trevan.local",
+      "url": "https://trevan.co",
       "title": "Trevan Hetzel",
       "description": "Trevan Hetzel's personal blog on front-end development, CSS, JavaScript, React, WordPress and more"
     }
@@ -37,7 +37,7 @@ const settings = {
       "name": "@frontity/wp-source",
       "state": {
         "source": {
-          "api": "http://trevan.co/wp-json"
+          "api": "https://trevan.co/wp-json"
         }
       }
     },
